@@ -1,4 +1,4 @@
-package dijfx;
+package demos;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
