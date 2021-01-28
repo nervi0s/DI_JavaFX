@@ -16,10 +16,10 @@ public class MetodoSetFillWidth extends Application {
 
         VBox vBox = new VBox(bt1);
 
-        vBox.setFillWidth(false);
+        vBox.setFillWidth(true);
 
         Scene escena = new Scene(vBox, 300, 250);
-        stage.setTitle("Demo Método SetFillHeight");
+        stage.setTitle("Demo Método SetFillWidth");
         stage.setScene(escena);
         stage.show();
     }
