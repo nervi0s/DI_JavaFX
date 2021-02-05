@@ -34,6 +34,7 @@ public class Demo11_CSS extends Application {
         c1.getStyleClass().add("plaincircle");
         c2.getStyleClass().add("plaincircle");
         //Asociamos un ID al círculo
+        c2.setId("greencircle");
         c3.setId("redcircle");
         //Asociamos varios selectores de clase a un elemento
         c4.getStyleClass().addAll("circleborder", "plaincircle");
