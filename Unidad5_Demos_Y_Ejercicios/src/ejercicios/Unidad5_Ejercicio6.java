@@ -16,7 +16,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Unidad5_Ejercicio5 extends Application {
+public class Unidad5_Ejercicio6 extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -30,7 +30,9 @@ public class Unidad5_Ejercicio5 extends Application {
         VBox vBoxAbajo = new VBox();
         //Creamos los elementos sueltos
         Text title = new Text("Plese Login:");
+        title.setId("titulo"); //ID para CSS
         Text botton = new Text("");
+        botton.setId("mensaje"); //ID para CSS
         Label labelUser = new Label("User Name:");
         Label labelPassword = new Label("Password:");
         TextField textUser = new TextField();
@@ -75,6 +77,8 @@ public class Unidad5_Ejercicio5 extends Application {
         });
 
         Scene escena = new Scene(root);
+        
+        escena.getStylesheets().add("ejercicios/estilo_ejercicio6.css");
         stage.setTitle("Ejercicio 5");
         stage.setScene(escena);
         stage.show();
