@@ -16,7 +16,8 @@ public class MainLoginFX extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
 
         Scene scene = new Scene(root);
-        
+        scene.getStylesheets().add("loginfx/estilo_ejercicio.css");
+
         stage.setTitle("JavaFX Login Form");
         stage.setScene(scene);
         stage.show();
@@ -39,5 +40,4 @@ public class MainLoginFX extends Application {
             System.out.println("Height: " + stage.getHeight());
         });
     }*/
-
 }

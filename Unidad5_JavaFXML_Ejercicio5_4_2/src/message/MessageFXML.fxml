@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="615.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="message.MessageFXMLController">
+   <top>
+      <HBox alignment="CENTER" prefWidth="200.0" spacing="10.0" style="-fx-border-color: green;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Enter a new message:" />
+            <TextField fx:id="inputText" onKeyTyped="#getMessage" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </top>
+   <left>
+      <VBox alignment="CENTER" prefWidth="100.0" spacing="20.0" style="-fx-border-color: green;" BorderPane.alignment="CENTER">
+         <children>
+            <RadioButton fx:id="radioBtnRed" mnemonicParsing="false" prefWidth="53.0" text="Red" />
+            <RadioButton fx:id="radioBtnGreen" mnemonicParsing="false" text="Green" />
+            <RadioButton fx:id="radioBtnBlue" mnemonicParsing="false" prefWidth="53.0" text="Blue" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" style="-fx-border-color: green;" BorderPane.alignment="CENTER">
+         <children>
+            <CheckBox fx:id="CheckBtnBold" mnemonicParsing="false" prefWidth="46.0" text="Bold" />
+            <CheckBox fx:id="CheckBtnItalic" mnemonicParsing="false" text="Italic" />
+            <CheckBox mnemonicParsing="false" text="null" visible="false" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </right>
+   <bottom>
+      <HBox alignment="CENTER" prefWidth="622.0" spacing="30.0" style="-fx-border-color: green;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnLeft" mnemonicParsing="false" onMouseClicked="#moveToLeft" prefWidth="65.0" text="Left" />
+            <Button fx:id="btnRight" mnemonicParsing="false" onMouseClicked="#moveToRight" prefWidth="65.0" text="Right" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fx:id="textShow" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,29 @@
+
+.root {
+    -fx-background-image: url("homer.jpg");
+}
+
+.label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold; 
+    -fx-text-fill: #00FF00; 
+}
+
+.button {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold; 
+    -fx-text-fill: white; 
+    -fx-background-color: linear-gradient(#61a2b1, #2a5058); 
+    -fx-font-family: "Arial Narrow"; 
+}
+
+#titulo{
+    -fx-font-size:32px;
+    -fx-font-family: "Arial Black";
+    -fx-fill: WHITE;
+}
+
+#mensaje {
+    -fx-fill:#ff9900;
+    -fx-font-weight:bold;
+}
