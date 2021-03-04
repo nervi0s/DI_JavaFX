@@ -18,6 +18,10 @@ public class Persona {
         this.birdthday = birdthday;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String getStreet() {
         return street;
     }

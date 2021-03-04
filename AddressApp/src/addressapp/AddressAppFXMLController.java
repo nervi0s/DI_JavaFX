@@ -53,7 +53,7 @@ public class AddressAppFXMLController implements Initializable {
         personas.add(new Persona("Pop", "Pop last", "calle 123", "Madrid", 2222, "19/19/19"));
         ObservableList<Persona> lista = FXCollections.observableArrayList(personas);
         tableView.setItems(lista);
-        tableColumnName.setCellValueFactory(new PropertyValueFactory<>(personas.get(0).getCity()));
+        tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
 
     @FXML
