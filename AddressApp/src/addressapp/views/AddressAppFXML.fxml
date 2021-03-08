@@ -48,8 +48,8 @@
          <children>
             <TableView fx:id="tableView" prefHeight="396.0" prefWidth="355.0">
               <columns>
-                <TableColumn fx:id="tableColumnName" prefWidth="180.0" text="C1" />
-                <TableColumn fx:id="tableColumnLastName" prefWidth="174.0" text="C2" />
+                <TableColumn fx:id="tableColumnName" prefWidth="180.0" text="Fisrt Name" />
+                <TableColumn fx:id="tableColumnLastName" prefWidth="174.0" text="Last Name" />
               </columns>
             </TableView>
             <Separator orientation="VERTICAL" prefHeight="200.0" />

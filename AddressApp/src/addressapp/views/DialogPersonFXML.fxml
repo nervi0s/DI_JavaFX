@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<DialogPane fx:id="dialogAddPerson" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="addressapp.AddPersonFXMLController">
+<DialogPane fx:id="dialogAddPerson" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="addressapp.DialogPersonFXMLController">
    <content>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="501.0">
          <children>
@@ -39,7 +38,7 @@
                   <TextField fx:id="tFLastName" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="tfStreet" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="tfCity" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="tfCP" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="tfPC" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <TextField fx:id="tfBirdthday" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
             </GridPane>
