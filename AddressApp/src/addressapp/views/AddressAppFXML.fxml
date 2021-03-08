@@ -97,13 +97,13 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street" GridPane.rowIndex="2" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" GridPane.rowIndex="3" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Postal Code" GridPane.rowIndex="4" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Birfthday" GridPane.rowIndex="5" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Anna" GridPane.columnIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Best" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="some street" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="some city" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1234" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="21.09.1999" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Birdthday" GridPane.rowIndex="5" />
+                        <Text fx:id="txtName" strokeType="OUTSIDE" strokeWidth="0.0" text="Anna" GridPane.columnIndex="1" />
+                        <Text fx:id="txtLastName" strokeType="OUTSIDE" strokeWidth="0.0" text="Best" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Text fx:id="txtStreet" strokeType="OUTSIDE" strokeWidth="0.0" text="some street" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Text fx:id="txtCity" strokeType="OUTSIDE" strokeWidth="0.0" text="some city" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Text fx:id="txtPC" strokeType="OUTSIDE" strokeWidth="0.0" text="1234" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Text fx:id="txtBirdthday" strokeType="OUTSIDE" strokeWidth="0.0" text="21.09.1999" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                      <padding>
                         <Insets left="10.0" top="20.0" />

@@ -1,23 +1,28 @@
 package addressapp;
 
-import javafx.collections.ObservableList;
-
 public class Persona {
 
+    private final int id;
     private final String name;
     private final String lastName;
     private String street;
     private String city;
     private int cp;
     private final String birdthday;
+    private static int idIncrement = 0;
 
     public Persona(String name, String lastName, String street, String city, int cp, String birdthday) {
+        this.id = ++idIncrement;
         this.name = name;
         this.lastName = lastName;
         this.street = street;
         this.city = city;
         this.cp = cp;
         this.birdthday = birdthday;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -58,7 +63,7 @@ public class Persona {
 
     public void guardarEnLaLista() {
         AddressAppFXMLController.lista.add(this);
-        System.out.println( AddressAppFXMLController.lista);
+        System.out.println(AddressAppFXMLController.lista);
     }
 
 }

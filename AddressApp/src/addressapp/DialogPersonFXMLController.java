@@ -53,15 +53,14 @@ public class DialogPersonFXMLController implements Initializable {
         aceptar = (Button) dialogAddPerson.lookupButton(ButtonType.OK);
         cancelar = (Button) dialogAddPerson.lookupButton(ButtonType.CANCEL);
 
-        dialogAddPerson.addEventFilter(ActionEvent.ACTION, e -> {//Si algún campo está vació consumimos el clic
+        aceptar.addEventFilter(ActionEvent.ACTION, e -> {//Si algún campo está vacío consumimos el clic
             if (!camposRellenos()) {
                 e.consume();
             }
         });
 
         aceptar.setOnAction(e -> {
-
-            //Comprobar si se está añadiendo una perona nueva o editando una persona existente
+            //Comprobar si se está añadiendo una persona nueva o editando una persona existente
             if (personaDialog == null) {
                 personaDialog = new Persona(tfName.getText(), tFLastName.getText(), tfStreet.getText(), tfCity.getText(), Integer.parseInt(tfPC.getText()), tfBirdthday.getText());
                 personaDialog.guardarEnLaLista();
@@ -71,7 +70,6 @@ public class DialogPersonFXMLController implements Initializable {
                 personaDialog.guardarEnLaLista();
                 personaDialog = null;
             }
-
         });
 
         cancelar.setOnAction(e -> {
