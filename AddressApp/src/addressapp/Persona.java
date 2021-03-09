@@ -1,10 +1,13 @@
 package addressapp;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Persona {
 
     private final int id;
-    private String name;
-    private String lastName;
+    private StringProperty name;
+    private StringProperty lastName;
     private String street;
     private String city;
     private int cp;
@@ -13,8 +16,8 @@ public class Persona {
 
     public Persona(String name, String lastName, String street, String city, int cp, String birdthday) {
         this.id = ++idIncrement;
-        this.name = name;
-        this.lastName = lastName;
+        setName(name);
+        setLastName(lastName);
         this.street = street;
         this.city = city;
         this.cp = cp;
@@ -25,20 +28,34 @@ public class Persona {
         return id;
     }
 
-    public String getName() {
+    public StringProperty nameProperty() {
+        if (name == null) {
+            name = new SimpleStringProperty(this, "name");
+        }
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return nameProperty().getValue();
     }
 
-    public String getLastName() {
+    public void setName(String name) {
+        nameProperty().set(name);
+    }
+
+    public StringProperty lastNameProperty() {
+        if (lastName == null) {
+            lastName = new SimpleStringProperty(this, "lastName");
+        }
         return lastName;
     }
 
+    public String getLastName() {
+        return lastNameProperty().getValue();
+    }
+
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        lastNameProperty().set(lastName);
     }
 
     public String getBirdthday() {
