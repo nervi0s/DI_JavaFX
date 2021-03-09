@@ -40,7 +40,7 @@ public class DialogPersonFXMLController implements Initializable {
     @FXML
     private TextField tfPC;
 
-    //Apuntarán a los botones de los DialogPane
+    //Apuntan a los botones del DialogPane
     private Button aceptar;
     private Button cancelar;
 
@@ -53,7 +53,7 @@ public class DialogPersonFXMLController implements Initializable {
         aceptar = (Button) dialogAddPerson.lookupButton(ButtonType.OK);
         cancelar = (Button) dialogAddPerson.lookupButton(ButtonType.CANCEL);
 
-        aceptar.addEventFilter(ActionEvent.ACTION, e -> {//Si algún campo está vacío consumimos el clic
+        aceptar.addEventFilter(ActionEvent.ACTION, e -> {//Si algún campo está vacío consumimos el click
             if (!camposRellenos()) {
                 e.consume();
             }
@@ -66,8 +66,15 @@ public class DialogPersonFXMLController implements Initializable {
                 personaDialog.guardarEnLaLista();
                 personaDialog = null;
             } else {
-                personaDialog = new Persona(tfName.getText(), tFLastName.getText(), tfStreet.getText(), tfCity.getText(), Integer.parseInt(tfPC.getText()), tfBirdthday.getText());
-                personaDialog.guardarEnLaLista();
+                //personaDialog = new Persona(tfName.getText(), tFLastName.getText(), tfStreet.getText(), tfCity.getText(), Integer.parseInt(tfPC.getText()), tfBirdthday.getText());
+                personaDialog.setName(tfName.getText());
+                personaDialog.setLastName(tFLastName.getText());
+                personaDialog.setStreet(tfStreet.getText());
+                personaDialog.setCity(tfCity.getText());
+                personaDialog.setCp(Integer.parseInt(tfPC.getText()));
+                personaDialog.setBirdthday(tfBirdthday.getText());
+                //Investigar como notidicar un cambio de un item ya en la lista observable
+                //usar quiza mejor StringProperty 
                 personaDialog = null;
             }
         });

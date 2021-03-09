@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -67,19 +68,19 @@ public class AddressAppFXMLController implements Initializable {
         tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableColumnLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 
-        /*tableView.setOnMouseClicked(e -> {
-            System.out.println(tableView.getSelectionModel().getSelectedItem().getStreet());
-        });*/
         tableView.getFocusModel().focusedCellProperty().addListener((e) -> {
-            if (tableView.getSelectionModel().getSelectedItem() != null) {//Si seleccionamos a una persona de la lista
-                String name = tableView.getSelectionModel().getSelectedItem().getName();
-                String lastName = tableView.getSelectionModel().getSelectedItem().getLastName();
-                String street = tableView.getSelectionModel().getSelectedItem().getStreet();
-                String city = tableView.getSelectionModel().getSelectedItem().getCity();
-                int pc = tableView.getSelectionModel().getSelectedItem().getCp();
-                String birdthday = tableView.getSelectionModel().getSelectedItem().getBirdthday();
+            Persona personaSeleccionada = tableView.getSelectionModel().getSelectedItem();
 
-                txtName.setText(name + " " + tableView.getSelectionModel().getSelectedItem().getId());
+            if (personaSeleccionada != null) {//Si seleccionamos a una persona de la lista
+                int id = personaSeleccionada.getId();
+                String name = personaSeleccionada.getName();
+                String lastName = personaSeleccionada.getLastName();
+                String street = personaSeleccionada.getStreet();
+                String city = personaSeleccionada.getCity();
+                int pc = personaSeleccionada.getCp();
+                String birdthday = personaSeleccionada.getBirdthday();
+
+                txtName.setText(name + " " + id);
                 txtLastName.setText(lastName);
                 txtStreet.setText(street);
                 txtCity.setText(city);
@@ -89,9 +90,20 @@ public class AddressAppFXMLController implements Initializable {
 
         });
 
-        /*tableView.focusedProperty().addListener(e->{
-            System.out.println("ddd");
-        });*/
+        //Comprobamos si la lista está vacía
+        buttonEdit.setDisable(lista.isEmpty());
+
+        //Añado un listener a la lista para desactivar el botón Edit en caso de que esté vacía, de lo contrario se vuelve clickable
+        lista.addListener(new ListChangeListener<Persona>() {
+            @Override
+            public void onChanged(ListChangeListener.Change<? extends Persona> change) {
+                if (lista.isEmpty()) {
+                    buttonEdit.setDisable(true);
+                } else {
+                    buttonEdit.setDisable(false);
+                }
+            }
+        });
     }
 
     @FXML
@@ -101,7 +113,13 @@ public class AddressAppFXMLController implements Initializable {
 
     @FXML
     private void editarPersona(ActionEvent event) {
-        showDialog(new Persona("Pop", "Pop last", "calle 123", "Madrid", 2222, "19/19/19"));
+        Persona personaSeleccionada = tableView.getSelectionModel().getSelectedItem();
+
+        if (personaSeleccionada != null) {
+            showDialog(personaSeleccionada);
+        } else {
+            System.out.println("debe seleccionar para editar");
+        }
     }
 
     @FXML

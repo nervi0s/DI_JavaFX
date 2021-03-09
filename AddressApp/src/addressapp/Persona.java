@@ -3,12 +3,12 @@ package addressapp;
 public class Persona {
 
     private final int id;
-    private final String name;
-    private final String lastName;
+    private String name;
+    private String lastName;
     private String street;
     private String city;
     private int cp;
-    private final String birdthday;
+    private String birdthday;
     private static int idIncrement = 0;
 
     public Persona(String name, String lastName, String street, String city, int cp, String birdthday) {
@@ -29,12 +29,24 @@ public class Persona {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getLastName() {
         return lastName;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getBirdthday() {
         return birdthday;
+    }
+
+    public void setBirdthday(String birdthday) {
+        this.birdthday = birdthday;
     }
 
     public String getStreet() {
