@@ -124,6 +124,13 @@ public class AddressAppFXMLController implements Initializable {
 
     @FXML
     private void EliminarPersona(ActionEvent event) {
+        Persona personaSeleccionada = tableView.getSelectionModel().getSelectedItem();
+
+        if (personaSeleccionada != null) {
+            lista.remove(personaSeleccionada);
+        } else {
+            System.out.println("debe seleccionar para eliminar");
+        }
     }
 
     //Para mostrar la ventana de diálogo vacía
@@ -142,11 +149,13 @@ public class AddressAppFXMLController implements Initializable {
 
     //Para mostrar la ventana de diálogo con los campos llenos
     private void showDialog(Persona persona) {
-
         try {
             DialogPersonFXMLController.personaDialog = persona;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("./views/DialogPersonFXML.fxml"));
+            DialogPane dialogPane = loader.load();
 
-            DialogPane dialogPane = FXMLLoader.load(getClass().getResource("./views/DialogPersonFXML.fxml"));
+            DialogPersonFXMLController dialogPersonController = loader.getController();
+            dialogPersonController.apuntarATextos(txtName, txtLastName, txtStreet, txtCity, txtPC, txtBirdthday);
 
             Dialog dialogWindow = new Dialog();
 

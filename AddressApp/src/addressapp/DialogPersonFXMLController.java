@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -44,11 +45,25 @@ public class DialogPersonFXMLController implements Initializable {
     private Button aceptar;
     private Button cancelar;
 
+    //Apuntan a los atributos que cambian del controlador AddressApp
+    Text txtName, txtLastName, txtStreet, txtCity, txtPC, txtBirdthday;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //Comprobamos si al llamar a este controlador personaDialog está apuntado a una persona
+        //En caso afirmativo rellenamos los campos de texto con su información
+        if (personaDialog != null) {
+            tfName.setText(personaDialog.getName());
+            tFLastName.setText(personaDialog.getLastName());
+            tfStreet.setText(personaDialog.getStreet());
+            tfCity.setText(personaDialog.getCity());
+            tfBirdthday.setText(personaDialog.getBirdthday());
+            tfPC.setText(String.valueOf(personaDialog.getCp()));
+        }
+
         //Obetenemos los botones del panel (Aceptar y Cancelar)
         aceptar = (Button) dialogAddPerson.lookupButton(ButtonType.OK);
         cancelar = (Button) dialogAddPerson.lookupButton(ButtonType.CANCEL);
@@ -73,8 +88,8 @@ public class DialogPersonFXMLController implements Initializable {
                 personaDialog.setCity(tfCity.getText());
                 personaDialog.setCp(Integer.parseInt(tfPC.getText()));
                 personaDialog.setBirdthday(tfBirdthday.getText());
-                //Investigar como notidicar un cambio de un item ya en la lista observable
-                //usar quiza mejor StringProperty 
+
+                establecerTextosEditados();
                 personaDialog = null;
             }
         });
@@ -82,15 +97,6 @@ public class DialogPersonFXMLController implements Initializable {
         cancelar.setOnAction(e -> {
             personaDialog = null;
         });
-
-        if (personaDialog != null) {
-            tfName.setText(personaDialog.getName());
-            tFLastName.setText(personaDialog.getLastName());
-            tfStreet.setText(personaDialog.getStreet());
-            tfCity.setText(personaDialog.getCity());
-            tfBirdthday.setText(personaDialog.getBirdthday());
-            tfPC.setText(String.valueOf(personaDialog.getCp()));
-        }
     }
 
     //true si todos lo campos estan rellenos, false en caso contrario
@@ -103,4 +109,21 @@ public class DialogPersonFXMLController implements Initializable {
                 && !tfPC.getText().isEmpty();
     }
 
+    public void apuntarATextos(Text name, Text lastName, Text street, Text city, Text pc, Text birdthday) {
+        txtName = name;
+        txtLastName = lastName;
+        txtStreet = street;
+        txtCity = city;
+        txtPC = pc;
+        txtBirdthday = birdthday;
+    }
+
+    private void establecerTextosEditados() {
+        txtName.setText(personaDialog.getName());
+        txtLastName.setText(personaDialog.getLastName());
+        txtStreet.setText(personaDialog.getStreet());
+        txtCity.setText(personaDialog.getCity());
+        txtPC.setText(String.valueOf(personaDialog.getCp()));
+        txtBirdthday.setText(personaDialog.getBirdthday());
+    }
 }
