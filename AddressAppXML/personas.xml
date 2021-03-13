@@ -1,0 +1,11 @@
+<list>
+  <persona>
+    <id>1</id>
+    <name>Bruce</name>
+    <lastName>Wayne</lastName>
+    <street>Bat Street 13</street>
+    <city>Gotham</city>
+    <cp>55555</cp>
+    <birdthday>01/01/1990</birdthday>
+  </persona>
+</list>
