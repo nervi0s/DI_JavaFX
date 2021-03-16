@@ -13,10 +13,20 @@ public class Persona {
     private String city;
     private int cp;
     private String birdthday;
-    private static int idIncrement = 0;
+    public static int idIncrement = 0;
 
     public Persona(String name, String lastName, String street, String city, int cp, String birdthday) {
         this.id = ++idIncrement;
+        setName(name);
+        setLastName(lastName);
+        this.street = street;
+        this.city = city;
+        this.cp = cp;
+        this.birdthday = birdthday;
+    }
+
+    public Persona(int id, String name, String lastName, String street, String city, int cp, String birdthday) {
+        this.id = id;
         setName(name);
         setLastName(lastName);
         this.street = street;
@@ -99,5 +109,15 @@ public class Persona {
     public void guardarEnLaLista() {
         AddressAppFXMLController.lista.add(this);
         System.out.println("Persona añadida a lista ObservableList<Persona>");
+    }
+
+    public boolean esIgual(Persona p) {
+        return this.getId() == p.getId()
+                && this.getName().equals(p.getName())
+                && this.getLastName().equals(p.getLastName())
+                && this.getStreet().equals(p.getStreet())
+                && this.getCity().equals(p.getCity())
+                && this.getCp() == p.getCp()
+                && this.getBirdthday().equals(p.getBirdthday());
     }
 }
