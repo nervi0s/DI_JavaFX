@@ -22,7 +22,7 @@ public class DbConnection {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException ex) {
             Logger.getLogger(DbConnection.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No se ha podido establecer conexión con la base de datos");
+            System.out.println("No se ha podido establecer conexión con la base de datos desde la clase DbConnection");
         }
         return connection;
     }
